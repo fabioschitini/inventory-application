@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <%- include(`./layout`) %> 
+    <div>
+    <h1><%= title %></h1>
+    <% categories.map(category=>{ %> 
+      <div>
+       <a href=/catalog/categories/<%= category._id %> > <h1><%= category.name %> </h1> </a>
+            <% })  %> 
+      </div>
+    </div>
+  </body>
+</html>

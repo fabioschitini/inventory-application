@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <%- include(`./layout`) %> 
+    <div>
+    <h1><%= title %></h1>
+    <% plataforms.map(plataform=>{ %> 
+      <div>
+       <a href=/catalog/plataforms/<%= plataform._id %> > <h1><%= plataform.name %> </h1> </a>
+            <% })  %> 
+      </div>
+    </div>
+  </body>
+</html>

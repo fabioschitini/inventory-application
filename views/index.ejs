@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <%- include(`./layout`) %> 
+    <div>
+    <h1><%= title %></h1>
+    <%if(games.length>9)  { %> 
+<% games=games.slice(0,9)  %> 
+      <%  }%> 
+    <% games.map(game=>{ %> 
+      <div>
+       <a href=catalog/games/<%= game._id %>> <h1><%= game.name %> </h1> </a>
+       <p><%= game._id %> </p>
+        <p><%=game.description %> </p>
+        <p><%= game.amount %> </p>
+        <%game.plataform.map(plataform=>{ %> 
+          <a href=catalog/plataforms/<%= plataform._id %>><%= plataform.name %> </a>
+          <% })  %> 
+          <%game.category.map(category=>{ %> 
+            <a href=catalog/categories/<%= category._id %>><%= category.name %> </a>
+            <% })  %> 
+      </div>
+      <%  }) %> 
+    </div>
+  </body>
+</html>
