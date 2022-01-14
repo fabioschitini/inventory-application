@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <%- include(`./layout`) %> 
+    <div>
+    <h1><%= title %></h1>
+    <form method=POST action=''>
+        <div class=form-group> 
+            <label for=name> Name</label>
+            <input id=name name=name type=text required=true value=<%= undefined===game?``:game.name %>  >
+        </div>
+        <div class=form-group> 
+            <label id=description for=description> Description</label>
+            <input name=description type=text required=true value=<%= undefined===game?``:game.description %> >
+        </div>
+
+        <div class=form-group> 
+            <label for=amount > Amount</label>
+            <input id=amount name=amount type=number required=true value=<%= undefined===game?``:game.amount %> >
+        </div> 
+
+        <div class=form-group> 
+          <label for=studio > Studio</label>
+          <input id=studio name=studio type=text required=true value=<%= undefined===game?``:game.studio %>  >
+      </div> 
+
+       
+        <div>
+          <label>Categories </label>
+          <% categories.map(category=>{ %>
+
+              <div>
+                <%let checked  %> 
+                <%if(category.checked!==undefined)  checked='checked' %>
+              <input  type=checkbox name=category id=<%=category._id  %> value=<%=category._id  %> <%= checked %>   >
+              <label for=<%= category._id %> > <%=category.name  %>  </label>
+          </div>
+
+              <% }) %> 
+      </div>
+
+      <div>
+
+        <label>Plataforms </label>
+        <% plataforms.map(plataform=>{ %>
+            <div>
+              <%let checked  %> 
+              <%if(plataform.checked!==undefined)  checked='checked' %>
+            <input  type=checkbox name=plataform id=<%=plataform._id  %> value=<%=plataform._id  %> <%= checked %>  >
+            <label for=<%= plataform._id %> > <%=plataform.name  %>  </label>
+        </div>
+        
+            <% }) %> 
+    </div>        
+        
+<button type=submit>Submit</button>
+    </form>
+    <ul>
+    <%errors.map(error=>{ %> 
+      <li> <%= error.msg %> </li>
+      <% })%> 
+
+      
+    </ul>
+    </div>
+  </body>
+</html>
