@@ -7,8 +7,8 @@
   <body>
     <%- include(`./layout`) %> 
     <div>
-    <h1><%= plataform.name  %></h1>
-       <% plataform_games.map(game=>{ %> 
+    <h1><%= category.name  %></h1> 
+       <% category_games.map(game=>{ %> 
         <div>
          <a href=/catalog/games/<%= game._id %>> <h1><%= game.name %> </h1> </a>
          <p><%= game._id %> </p>
@@ -22,8 +22,13 @@
               <% })  %> 
         </div>
         <%  }) %> 
-        <button><a href=/catalog/plataforms/update/<%=plataform._id  %> >Update</a></button>
-        <button><a href=/catalog/plataforms/delete/<%=plataform._id  %> >Delete</a></button>
+        <div>
+            <p>Do you really wish to delete this category?</p>
+            <form method=POST action="">
+                <input type=hidden name=id required=true value=<%=category._id  %> >
+                <button type=submit >Delete</button>
+            </form>
+          </div>
           </div>
   </body>
 </html>

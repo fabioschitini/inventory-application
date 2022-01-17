@@ -19,8 +19,11 @@
             <a href=/catalog/categories/<%= category._id %>> <%= category.name %> </a>
             <% })  %> 
             <div>
-                <button><a href=/catalog/games/update/<%=game._id  %> >Update</a></button>
-                <button><a href=/catalog/games/delete/<%=game._id  %> >Delete</a></button>
+                <p>Do you really want to delete this game?</p>
+                <form method=POST action=''>
+<input type=hidden name=id required=true value=<%= game._id %> >
+<button type=submit >Delete</button>
+                </form>
             </div>
           </div>
     </div>

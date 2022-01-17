@@ -4,6 +4,30 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const multer = require('multer');
+
+//define storage for the images
+
+const storage = multer.diskStorage({
+  //destination for files
+  destination: function (request, file, callback) {
+    callback(null, './public//images');
+  },
+
+  //add back the extension
+  filename: function (request, file, callback) {
+    callback(null, Date.now() + file.originalname);
+  },
+});
+
+//upload parameters for multer
+const upload = multer({
+  storage: storage,
+  limits: {
+    fieldSize: 1024 * 1024 * 3,
+  },
+});
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var catalogRouter = require('./routes/catalog');  //Import routes for "catalog" area of site
@@ -26,6 +50,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+
+
+//app.get(`/catalog/test`,(req,res)=>{res.render('test')})
+//app.post(`/catalog/test`,upload.single('image'),async (req,res)=>{await console.log(req.file)})
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

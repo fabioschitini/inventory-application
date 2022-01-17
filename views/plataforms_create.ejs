@@ -8,12 +8,18 @@
     <%- include(`./layout`) %> 
     <div>
     <h1><%= title %></h1>
-    <form>
+    <form method=POST action="">
         <div class=form-group> 
             <label for=name> Name</label>
-            <input id=name name=name type=text required=true >
+            <input id=name name=name type=text required=true value='<%= undefined===plataform?``:plataform.name %>'  >
         </div>
+        <button type=submit>Submit</button>
     </form>
+    <ul>
+      <%errors.map(error=>{ %> 
+        <li> <%= error.msg %> </li>
+        <% })%> 
+      </ul>
     </div>
   </body>
 </html>
