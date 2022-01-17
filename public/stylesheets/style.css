@@ -5,7 +5,8 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: black;
+  text-decoration: none;
 }
 nav{
   display: flex;
@@ -15,11 +16,74 @@ nav{
 
 .li-elements{
   padding-top: 25px;
-font-size: 25px;
+font-size: 35px;
 list-style-type: none;
 }
 .nav-ul{
   padding: 0;
 }
 
+.sub-links{
+  padding-right: 7px;
+}
+
+a:hover{
+  color: orangered;
+  text-decoration: underline;
+}
+
+.main-container{
+  width: 70%;
+  font-size: 15px;
+}
+
+.form-control{
+  display: block;
+width: 100%;
+padding: .375rem .75rem;
+font-size: 1rem;
+font-weight: 400;
+line-height: 1.5;
+color: #495057;
+background-color: #fff;
+background-clip: padding-box;
+border: 1px solid #ced4da;
+border-radius: .25rem;
+transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+} 
+.chechbox-div{
+  display: inline;
+  padding-right: 10px;
+}
+.checkbox{
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 10px;
+}
+button{
+  cursor: pointer;
+  background-color: #0069d9;
+  display: inline-block;
+font-weight: 400;
+color: #fff;
+text-align: center;
+vertical-align: middle;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+border: 1px solid transparent;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+padding: .375rem .75rem;
+font-size: 1rem;
+line-height: 1.5;
+border-radius: .25rem;
+margin-top: 30px;
+}
+button:hover{
+  color: black;
+}
 

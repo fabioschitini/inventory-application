@@ -14,7 +14,7 @@ const { body,validationResult } = require("express-validator");
     exports.plataforms_details=(req,res,next)=>{
       async.parallel({
           plataform_games:callback=>{
-              Game.find({'plataform':req.params.id}).exec(callback)
+              Game.find({'plataform':req.params.id}).populate(`plataform category`).exec(callback)
           },
           plataform:callback=>{
              Plataform.findById(req.params.id).exec(callback)
@@ -118,7 +118,7 @@ const { body,validationResult } = require("express-validator");
     exports.plataforms_delete_get=(req,res,next)=>{
         async.parallel({
             plataform_games:callback=>{
-                Game.find({'plataform':req.params.id}).exec(callback)
+                Game.find({'plataform':req.params.id}).populate(`plataform category`).exec(callback)
             },
             plataform:callback=>{
                 Plataform.findById(req.params.id).exec(callback)

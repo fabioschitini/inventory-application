@@ -6,17 +6,17 @@
   </head>
   <body>
     <%- include(`./layout`) %> 
-    <div>
+    <div class=main-container>
     <h1><%= title %></h1>
-      <div>
+      <div class=main-container>
        <h1><%= game.name %> </h1>
         <p><%=game.description %> </p>
-        <p>Amount <%= game.amount %> </p>
+        <p>Amount: <%= game.amount %> </p>
         <%game.plataform.map(plataform=>{ %> 
-          <a href=/catalog/plataforms/<%= plataform._id %>><%= plataform.name %> </a>
+          <a class=sub-links href=/catalog/plataforms/<%= plataform._id %>><%= plataform.name %> </a>
           <% })  %> 
           <%game.category.map(category=>{ %> 
-            <a href=/catalog/categories/<%= category._id %>> <%= category.name %> </a>
+            <a class=sub-links href=/catalog/categories/<%= category._id %>> <%= category.name %> </a>
             <% })  %> 
             <div>
                 <button><a href=/catalog/games/update/<%=game._id  %> >Update</a></button>

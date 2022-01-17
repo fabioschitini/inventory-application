@@ -6,12 +6,12 @@
   </head>
   <body>
     <%- include(`./layout`) %> 
-    <div>
+    <div class=main-container>
     <h1><%= title %></h1>
     <form method=POST action="">
         <div class=form-group> 
             <label for=name> Name</label>
-            <input id=name name=name type=text required=true value='<%= undefined===category?``:category.name %>'  >
+            <input class=form-control  id=name name=name type=text required=true value='<%= undefined===category?``:category.name %>'  >
         </div>
         <button type=submit>Submit</button>
     </form>

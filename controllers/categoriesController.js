@@ -15,7 +15,7 @@ exports.categories_list=(req,res,next)=>{
     exports.categories_details=(req,res,next)=>{
         async.parallel({
             category_games:callback=>{
-                Game.find({'category':req.params.id}).exec(callback)
+                Game.find({'category':req.params.id}).populate(`plataform category`).exec(callback)
             },
             category:callback=>{
                Category.findById(req.params.id).exec(callback)
@@ -118,7 +118,7 @@ exports.categories_list=(req,res,next)=>{
         exports.categories_delete_get=(req,res,next)=>{
             async.parallel({
                 category_games:callback=>{
-                    Game.find({'category':req.params.id}).exec(callback)
+                    Game.find({'category':req.params.id}).populate(`plataform category`).exec(callback)
                 },
                 category:callback=>{
                    Category.findById(req.params.id).exec(callback)
