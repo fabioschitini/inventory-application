@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+require('dotenv').config();
 
 const multer = require('multer');
 
@@ -34,7 +35,7 @@ var catalogRouter = require('./routes/catalog');  //Import routes for "catalog" 
 
 var app = express();
 var mongoose = require('mongoose');
-const dev_db_url=`mongodb+srv://schitini:Fabiolindo1@node-projects.zykqj.mongodb.net/inventoryApplication?retryWrites=true&w=majority`
+const dev_db_url=process.env.mongoDb
 var mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.Promise = global.Promise;
